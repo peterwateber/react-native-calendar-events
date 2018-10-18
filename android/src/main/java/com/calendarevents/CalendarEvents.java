@@ -992,6 +992,7 @@ public class CalendarEvents extends ReactContextBaseJavaModule {
         boolean allDay = false;
         String startDateUTC = "";
         String endDateUTC = "";
+        String rrule = "";
 
         if (cursor.getString(3) != null) {
             foundStartDate.setTimeInMillis(Long.parseLong(cursor.getString(3)));
@@ -1008,8 +1009,9 @@ public class CalendarEvents extends ReactContextBaseJavaModule {
         }
 
         if (cursor.getString(7) != null) {
+            rrule = cursor.getString(7);
             WritableNativeMap recurrenceRule = new WritableNativeMap();
-            String[] recurrenceRules = cursor.getString(7).split(";");
+            String[] recurrenceRules = rrule.split(";");
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
 
             if (recurrenceRules.length > 0 && recurrenceRules[0].split("=").length > 1) {
@@ -1051,6 +1053,7 @@ public class CalendarEvents extends ReactContextBaseJavaModule {
         event.putString("location", cursor.getString(6));
         event.putString("availability", availabilityStringMatchingConstant(cursor.getInt(9)));
         event.putArray("attendees", (WritableArray) findAttendeesByEventId(cursor.getString(0)));
+        event.putString("rrule", rrule);
 
         if (cursor.getInt(10) > 0) {
             event.putArray("alarms", findReminderByEventId(cursor.getString(0), Long.parseLong(cursor.getString(3))));

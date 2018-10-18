@@ -1,3 +1,6 @@
+##  Note: Merged Pull Request
+Additional `rrule` field: https://github.com/wmcmahan/react-native-calendar-events/pull/199
+
 # React Native Calendar Events
 
 [![npm](https://img.shields.io/npm/v/react-native-calendar-events.svg?style=flat-square)](https://www.npmjs.com/package/react-native-calendar-events)
