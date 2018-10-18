@@ -232,7 +232,7 @@ Returns: **Promise**
 | [**alarms**](#alarms)          | Array            | The alarms associated with the calendar event, as an array of alarm objects. | ✓ | ✓ |
 | [**attendees**](#attendees)*   | Array            | The attendees of the event, including the organizer. | ✓ | ✓ |
 | [**calendar**](#calendar)*    | Object      | The calendar containing the event.| ✓ | ✓ |
-
+| **rrule**      | String           | The RRule string | ✓ | ✓ |
 
 ### Calendar
 
